@@ -1,104 +1,252 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rikit Thapa Portfolio</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(to right, #1e3c72, #2a5298);
-            color: white;
-            text-align: center;
-        }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Rikit Thapa — Portfolio</title>
+  <meta name="description" content="Rikit Thapa — Computer Systems Technician. Networking, Azure, Cloud Security, IT Support. Portfolio, projects and resume." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
-        header {
-            padding: 50px 20px;
-        }
+  <style>
+    :root{
+      --bg:#f6f8fb;
+      --card:#ffffff;
+      --muted:#6b7280;
+      --accent:#6c63ff;
+      --accent-2:#06b6d4;
+      --text:#0b1320;
+      --radius:14px;
+      --shadow: 0 10px 30px rgba(12,18,30,0.08);
+      --glass: rgba(255,255,255,0.7);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      background:linear-gradient(180deg,#f3f6ff 0%, #f6f8fb 100%);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      padding:36px 20px;
+    }
 
-        h1 {
-            font-size: 48px;
-            margin-bottom: 5px;
-        }
+    .container{max-width:1100px;margin:0 auto}
 
-        h2 {
-            margin-top: 40px;
-            font-size: 32px;
-            text-decoration: underline;
-        }
+    /* Hero */
+    .hero{
+      display:flex;
+      gap:24px;
+      align-items:center;
+      background: linear-gradient(135deg, rgba(108,99,255,0.06), rgba(6,182,212,0.04));
+      padding:32px;
+      border-radius:20px;
+      box-shadow:var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+    .avatar{
+      width:120px;height:120px;border-radius:16px;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      display:flex;align-items:center;justify-content:center;color:white;font-size:40px;font-weight:800;
+      flex:0 0 120px;
+      box-shadow:0 8px 30px rgba(108,99,255,0.12);
+    }
+    .hero h1{margin:0;font-size:28px}
+    .hero p.lead{margin:8px 0 0;color:var(--muted)}
+    .actions{margin-top:14px;display:flex;gap:10px;flex-wrap:wrap}
+    .btn{
+      padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700;
+      display:inline-flex;align-items:center;gap:8px;border:0;
+      box-shadow:0 6px 18px rgba(12,18,30,0.06);
+    }
+    .btn.primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:white}
+    .btn.ghost{background:var(--card);color:var(--text);border:1px solid rgba(12,18,30,0.04)}
 
-        p {
-            font-size: 18px;
-            width: 70%;
-            margin: auto;
-        }
+    @media (max-width:880px){
+      .hero{flex-direction:column;align-items:flex-start}
+      .avatar{width:96px;height:96px;flex:0 0 96px;border-radius:12px}
+    }
 
-        .btn {
-            display: inline-block;
-            margin: 15px;
-            padding: 12px 22px;
-            background: #ffcc00;
-            color: black;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-        }
+    /* Layout */
+    .grid{display:grid;grid-template-columns:2fr 1fr;gap:22px;margin-top:22px}
+    @media (max-width:900px){ .grid{grid-template-columns:1fr} }
 
-        .btn:hover {
-            background: #ffe680;
-        }
+    .card{background:var(--card);padding:18px;border-radius:14px;box-shadow:var(--shadow);transition:transform .18s}
+    .card:hover{transform:translateY(-6px)}
+    h2{margin:0 0 12px;font-size:18px}
+    .muted{color:var(--muted)}
 
-        .project-section {
-           	margin-top: 40px;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            width: 80%;
-            margin-left: auto;
-            margin-right: auto;
-        }
+    /* Projects */
+    .projects{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px}
+    .project{
+      display:flex;gap:12px;align-items:flex-start;padding:12px;border-radius:12px;border:1px solid rgba(12,18,30,0.04);
+      background:linear-gradient(180deg, rgba(12,18,30,0.02), rgba(12,18,30,0.01));
+    }
+    .tag{font-size:12px;padding:6px 10px;border-radius:999px;background:linear-gradient(90deg,var(--accent-2),var(--accent));color:white;font-weight:700}
+    .project .meta a.title{display:block;font-weight:700;color:var(--text);text-decoration:none;margin-bottom:6px}
+    .project .meta p{margin:0;color:var(--muted);font-size:14px}
 
-        ul {
-            text-align: left;
-            width: 70%;
-            margin: auto;
-            font-size: 18px;
-        }
+    /* Skills */
+    .skills{display:flex;flex-wrap:wrap;gap:8px}
+    .skill{padding:8px 12px;border-radius:999px;background:linear-gradient(90deg,#eef2ff,#fffaf0);font-weight:700;color:#0b1220}
 
-        footer {
-            margin-top: 40px;
-            padding: 20px;
-            background: rgba(0,0,0,0.3);
-        }
-    </style>
+    /* Contact */
+    .contact-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+
+    footer{margin-top:28px;text-align:center;color:var(--muted);font-size:13px}
+
+    /* Responsive tweaks */
+    @media (max-width:420px){
+      .hero h1{font-size:20px}
+    }
+  </style>
 </head>
 <body>
+  <div class="container">
 
-<header>
-    <h1>Hi, I'm <span style="color:#ffcc00;">Rikit Thapa</span></h1>
-    <p>IT Support | Networking | Cybersecurity Enthusiast  
-    Passionate about solving problems, supporting users, and building secure systems.</p>
+    <!-- HERO -->
+    <header class="hero card" role="banner" aria-label="hero">
+      <div class="avatar" aria-hidden="true">RT</div>
 
-    <a class="btn" href="Resume.pdf" target="_blank">📄 View Resume (PDF)</a>
-    <a class="btn" href="https://www.linkedin.com/in/rikit-thapa-294ab028a/" target="_blank">🔗 LinkedIn</a>
-    <a class="btn" href="https://github.com/rikit03" target="_blank">💻 GitHub</a>
-</header>
+      <div style="flex:1;min-width:0">
+        <h1>Hi, I'm <strong>Rikit Thapa</strong></h1>
+        <p class="lead muted">Computer Systems Technician • Networking • Azure Security • IT Support</p>
 
-<h2>💼 Technical Skills</h2>
-<p>
-• Networking (Cisco, Routing & Switching) • IT Support • Active Directory  
-• Windows OS & Server • Linux Basics • Troubleshooting • Ticketing Systems  
-• Python (Basics) • Security Fundamentals • Cisco CCNA Prep
-</p>
+        <div class="actions" role="group" aria-label="quick links">
+          <!-- Developer note: resume file path is local; will be converted to URL when deploying -->
+          <a class="btn primary" href="/mnt/data/resume.pdf" target="_blank" rel="noopener">📄 Resume (PDF)</a>
+          <a class="btn ghost" href="https://github.com/rikit03" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn ghost" href="https://www.linkedin.com/in/rikit-thapa-294ab028a/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
 
-<h2>🔧 Projects</h2>
+        <div class="contact-row muted" style="margin-top:12px">
+          <div>📍 Belleville, ON</div>
+          <div>•</div>
+          <div>🎓 Loyalist College (2025)</div>
+        </div>
+      </div>
+    </header>
 
-<div class="project-section">
-    <h3>📌 Active Directory Home Lab</h3>
-    <p>Created a full Windows Server AD environment with domain users, GPO, and security policies.</p>
-</div>
+    <!-- MAIN GRID -->
+    <main class="grid" role="main">
+      <!-- LEFT -->
+      <section>
+        <article class="card" aria-labelledby="about">
+          <h2 id="about">About</h2>
+          <p class="muted">
+            Motivated Computer Systems Technician graduate with hands-on experience in IT support, networking, and Azure cloud security. Skilled in troubleshooting, system administration (Windows & Linux), Azure services, and automating tasks using PowerShell and Python. Strong documentation habits, and experience designing multi-site network simulations and secure cloud environments.
+          </p>
+        </article>
 
-<div class="project-section">
-    <h3>📌 Network Simulation (Cisco Packet Tracer)</h3>
+        <article class="card" style="margin-top:16px" aria-labelledby="projects">
+          <h2 id="projects">Highlighted Projects</h2>
+
+          <ul class="projects" aria-live="polite">
+            <!-- Azure Security Lab -->
+            <li class="project" aria-label="Azure Security Lab">
+              <div class="tag">Cloud</div>
+              <div class="meta" style="flex:1">
+                <a class="title" href="projects/azure-security-lab/" target="_blank">Azure Security Lab (AZ-500)</a>
+                <p class="muted">Hardened Azure environment — RBAC, NSGs, Azure Firewall, Log Analytics and monitoring. Includes ARM/Bicep snippets and policy examples.</p>
+                <div style="margin-top:8px">
+                  <a class="btn ghost" href="projects/azure-security-lab/azure-architecture.png" target="_blank">View diagram</a>
+                  <a class="btn ghost" href="projects/azure-security-lab/az-policy.json" target="_blank">Policy JSON</a>
+                </div>
+              </div>
+            </li>
+
+            <!-- SQL Security & Backup Strategy -->
+            <li class="project" aria-label="SQL Security and Backup Strategy">
+              <div class="tag" style="background:linear-gradient(90deg,#ffb366,#ff7b7b)">DB</div>
+              <div class="meta" style="flex:1">
+                <a class="title" href="projects/sql/rikit_SQL_Security_policy.docx" target="_blank">SQL Security Policy</a>
+                <p class="muted">Role-based access controls, auditing and a documented backup & recovery strategy for on-prem/VM SQL Server environments.</p>
+                <div style="margin-top:8px">
+                  <a class="btn ghost" href="projects/sql/rikit_SQL%20Backup%20policy.docx" target="_blank">Download Backup Policy</a>
+                  <a class="btn ghost" href="projects/sql/rikit_SQL_Security_policy.docx" target="_blank">Download Security Policy</a>
+                </div>
+              </div>
+            </li>
+
+            <!-- Python + SQL Automation Tool -->
+            <li class="project" aria-label="Python plus SQL Automation Tool">
+              <div class="tag">Code</div>
+              <div class="meta" style="flex:1">
+                <a class="title" href="projects/python-sql/app.py" target="_blank">Python + SQL Automation Tool</a>
+                <p class="muted">A Python-based automation tool that executes SQL queries, triggers stored procedures and exports reports. Built with pyodbc for SQL Server connectivity.</p>
+                <div style="margin-top:8px">
+                  <a class="btn ghost" href="projects/python-sql/app.py" target="_blank">app.py</a>
+                  <a class="btn ghost" href="projects/python-sql/pythonProject.sql" target="_blank">SQL scripts</a>
+                </div>
+              </div>
+            </li>
+
+            <!-- Network Design Simulation -->
+            <li class="project" aria-label="Network Design Simulation">
+              <div class="tag" style="background:linear-gradient(90deg,#9f7aea,#60a5fa)">Network</div>
+              <div class="meta" style="flex:1">
+                <a class="title" href="projects/network/network-topology.pkt" target="_blank">Network Design Simulation</a>
+                <p class="muted">Multi-site network simulated in Packet Tracer / GNS3 with VLANs, OSPF, DHCP, ACLs and NAT. Full documentation and configs included.</p>
+                <div style="margin-top:8px">
+                  <a class="btn ghost" href="projects/network/network-topology.pkt" target="_blank">Download .pkt</a>
+                  <a class="btn ghost" href="projects/network/network-docs.pdf" target="_blank">Documentation</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </article>
+
+        <article class="card" style="margin-top:16px" aria-labelledby="experience">
+          <h2 id="experience">Experience</h2>
+          <ul class="muted" style="padding-left:18px;margin:0">
+            <li><strong>Technical Sales Advisor</strong> — Best Buy, Belleville, ON (Oct 2023 – Jun 2025): customer-facing troubleshooting, hardware & software setups, assisted Geek Squad.</li>
+            <li><strong>Customer Support Representative</strong> — Techlink Solutions, Kathmandu (Oct 2022 – Jul 2023): phone/email/chat support, issue triage and resolution.</li>
+            <li><strong>Lab Assistant</strong> — Southwestern State College, Kathmandu (May 2022 – Oct 2022): VM/lab provisioning, student support, and lab maintenance.</li>
+          </ul>
+        </article>
+      </section>
+
+      <!-- RIGHT -->
+      <aside>
+        <div class="card" aria-labelledby="skills">
+          <h2 id="skills">Skills & Tools</h2>
+          <div class="skills" style="margin-top:10px">
+            <div class="skill">Routing & Switching</div>
+            <div class="skill">VLANs</div>
+            <div class="skill">OSPF / EIGRP</div>
+            <div class="skill">Azure RBAC</div>
+            <div class="skill">Azure Firewall</div>
+            <div class="skill">Windows Server</div>
+            <div class="skill">Linux</div>
+            <div class="skill">PowerShell</div>
+            <div class="skill">Python</div>
+            <div class="skill">SQL Server</div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:16px" aria-labelledby="resume">
+          <h2 id="resume">Resume</h2>
+          <p class="muted">Open or download my resume (PDF).</p>
+          <a class="btn primary" href="/mnt/data/resume.pdf" target="_blank" rel="noopener">Open Resume (PDF)</a>
+        </div>
+
+        <div class="card" style="margin-top:16px" aria-labelledby="contact">
+          <h2 id="contact">Contact</h2>
+          <p class="muted">Email: <a href="mailto:rikitthapa03@gmail.com">rikitthapa03@gmail.com</a></p>
+          <div style="margin-top:10px">
+            <a class="btn ghost" href="https://github.com/rikit03" target="_blank">GitHub</a>
+            <a class="btn ghost" href="https://www.linkedin.com/in/rikit-thapa-294ab028a/" target="_blank">LinkedIn</a>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <footer>
+      <div class="muted">© 2025 Rikit Thapa — Built for IT & Networking roles</div>
+    </footer>
+
+  </div>
+</body>
+</html>
