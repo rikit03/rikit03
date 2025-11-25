@@ -8,37 +8,41 @@
 ---
 
 ## 🔎 About This Portfolio
-This repository hosts my personal portfolio website built using **HTML, CSS, and GitHub Pages**.  
-It highlights my experience in **IT support, networking, cloud security, system administration, and automation**.
+This repository contains my personal portfolio website built using **HTML, CSS, and GitHub Pages**.
 
-The portfolio is designed to be:
+The site highlights my background in **IT support, networking, cloud security, system administration, and automation**, with a clean and organized layout designed for fast review by hiring managers.
+
+This portfolio is:
 - ✔ Clean  
 - ✔ Professional  
-- ✔ Fast to browse for recruiters  
+- ✔ Simple to navigate  
 - ✔ Mobile-friendly  
 
 ---
 
 ## 👤 About Me
-I am a **Computer Systems Technician** passionate about building secure, scalable, and efficient IT systems.  
-Key strengths include:
+I am a **Computer Systems Technician** dedicated to building secure, scalable, and reliable IT environments.
+
+My strengths include:
 
 - **Networking:** VLANs, OSPF, DHCP, ACLs, NAT, Switching  
 - **Systems:** Windows Server, Linux, Active Directory  
 - **Cloud:** Azure AD, RBAC, Azure Firewall, NSGs, Monitoring  
-- **Automation:** Python, PowerShell  
+- **Automation:** PowerShell, Python  
 - **Databases:** SQL Server, MySQL  
+
+I enjoy working on real-world infrastructure challenges and helping organizations improve their technical efficiency.
 
 ---
 
 ## 🌐 Live Portfolio
-🔗 **Live Website:**  
+🔗 **View Website:**  
 👉 https://rikit03.github.io/portfolio
 
 ---
 
 ## 📄 Resume
-📥 **View/Download Resume:**  
+📥 **Download / View Resume:**  
 👉 [Resume.pdf](./Resume.pdf)
 
 ---
@@ -47,16 +51,14 @@ Key strengths include:
 - 📧 **Email:** [rikitthapa2003@outlook.com](mailto:rikitthapa2003@outlook.com)  
 - 📱 **Phone:** 613-970-4076  
 - 📍 **Location:** Belleville, Ontario  
-- 🔗 **LinkedIn:**  
-  https://www.linkedin.com/in/rikit-thapa-294ab028a  
-- 🧑‍💻 **GitHub:**  
-  https://github.com/rikit03  
+- 🔗 **LinkedIn:** https://www.linkedin.com/in/rikit-thapa-294ab028a  
+- 🧑‍💻 **GitHub:** https://github.com/rikit03  
 
 ---
 
 ## 🛠️ Tech Used
 - **HTML5** — structure  
-- **CSS3** — layout & styling  
+- **CSS3** — styling  
 - **GitHub Pages** — hosting  
 
 ---
