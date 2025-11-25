@@ -17,236 +17,141 @@
       --text:#0b1320;
       --radius:14px;
       --shadow: 0 10px 30px rgba(12,18,30,0.08);
-      --glass: rgba(255,255,255,0.7);
     }
     *{box-sizing:border-box}
-    html,body{height:100%}
     body{
       margin:0;
-      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
-      background:linear-gradient(180deg,#f3f6ff 0%, #f6f8fb 100%);
-      color:var(--text);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height:1.45;
+      font-family:Inter,system-ui,-apple-system;
+      background:#f6f8fb;
       padding:36px 20px;
+      color:var(--text);
     }
-
-    .container{max-width:1100px;margin:0 auto}
-
-    /* Hero */
+    .container{max-width:1100px;margin:auto}
     .hero{
-      display:flex;
-      gap:24px;
-      align-items:center;
-      background: linear-gradient(135deg, rgba(108,99,255,0.06), rgba(6,182,212,0.04));
-      padding:32px;
-      border-radius:20px;
-      box-shadow:var(--shadow);
-      position:relative;
-      overflow:hidden;
+      display:flex;gap:24px;align-items:center;
+      background:linear-gradient(135deg,#6c63ff0d,#06b6d40d);
+      padding:32px;border-radius:20px;box-shadow:var(--shadow);
     }
     .avatar{
       width:120px;height:120px;border-radius:16px;
       background:linear-gradient(135deg,var(--accent),var(--accent-2));
-      display:flex;align-items:center;justify-content:center;color:white;font-size:40px;font-weight:800;
-      flex:0 0 120px;
-      box-shadow:0 8px 30px rgba(108,99,255,0.12);
+      color:white;font-size:40px;font-weight:800;
+      display:flex;align-items:center;justify-content:center;
     }
-    .hero h1{margin:0;font-size:28px}
-    .hero p.lead{margin:8px 0 0;color:var(--muted)}
-    .actions{margin-top:14px;display:flex;gap:10px;flex-wrap:wrap}
     .btn{
       padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700;
-      display:inline-flex;align-items:center;gap:8px;border:0;
-      box-shadow:0 6px 18px rgba(12,18,30,0.06);
+      display:inline-flex;gap:8px;
     }
     .btn.primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:white}
-    .btn.ghost{background:var(--card);color:var(--text);border:1px solid rgba(12,18,30,0.04)}
-
-    @media (max-width:880px){
-      .hero{flex-direction:column;align-items:flex-start}
-      .avatar{width:96px;height:96px;flex:0 0 96px;border-radius:12px}
-    }
-
-    /* Layout */
+    .btn.ghost{background:white;border:1px solid #ddd;color:var(--text)}
     .grid{display:grid;grid-template-columns:2fr 1fr;gap:22px;margin-top:22px}
-    @media (max-width:900px){ .grid{grid-template-columns:1fr} }
-
-    .card{background:var(--card);padding:18px;border-radius:14px;box-shadow:var(--shadow);transition:transform .18s}
-    .card:hover{transform:translateY(-6px)}
-    h2{margin:0 0 12px;font-size:18px}
-    .muted{color:var(--muted)}
-
-    /* Projects */
-    .projects{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px}
-    .project{
-      display:flex;gap:12px;align-items:flex-start;padding:12px;border-radius:12px;border:1px solid rgba(12,18,30,0.04);
-      background:linear-gradient(180deg, rgba(12,18,30,0.02), rgba(12,18,30,0.01));
-    }
-    .tag{font-size:12px;padding:6px 10px;border-radius:999px;background:linear-gradient(90deg,var(--accent-2),var(--accent));color:white;font-weight:700}
-    .project .meta a.title{display:block;font-weight:700;color:var(--text);text-decoration:none;margin-bottom:6px}
-    .project .meta p{margin:0;color:var(--muted);font-size:14px}
-
-    /* Skills */
-    .skills{display:flex;flex-wrap:wrap;gap:8px}
-    .skill{padding:8px 12px;border-radius:999px;background:linear-gradient(90deg,#eef2ff,#fffaf0);font-weight:700;color:#0b1220}
-
-    /* Contact */
-    .contact-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
-
-    footer{margin-top:28px;text-align:center;color:var(--muted);font-size:13px}
-
-    /* Responsive tweaks */
-    @media (max-width:420px){
-      .hero h1{font-size:20px}
-    }
+    .card{background:white;padding:18px;border-radius:14px;box-shadow:var(--shadow)}
+    .projects{list-style:none;padding:0;display:flex;flex-direction:column;gap:12px}
+    .project{padding:12px;border-radius:12px;border:1px solid #eee;background:#fafafa}
+    .tag{padding:6px 10px;border-radius:999px;font-size:12px;color:white;background:linear-gradient(90deg,#06b6d4,#6c63ff)}
+    footer{text-align:center;margin-top:30px;color:#6b7280}
   </style>
 </head>
 <body>
-  <div class="container">
+<div class="container">
 
-    <!-- HERO -->
-    <header class="hero card" role="banner" aria-label="hero">
-      <div class="avatar" aria-hidden="true">RT</div>
+  <!-- HERO -->
+  <header class="hero">
+    <div class="avatar">RT</div>
+    <div>
+      <h1>Hi, I'm <strong>Rikit Thapa</strong></h1>
+      <p>Computer Systems Technician • Networking • Azure Security • IT Support</p>
 
-      <div style="flex:1;min-width:0">
-        <h1>Hi, I'm <strong>Rikit Thapa</strong></h1>
-        <p class="lead muted">Computer Systems Technician • Networking • Azure Security • IT Support</p>
-
-        <div class="actions" role="group" aria-label="quick links">
-          <!-- Developer note: resume file path is local; will be converted to URL when deploying -->
-          <a class="btn primary" href="/mnt/data/resume.pdf" target="_blank" rel="noopener">📄 Resume (PDF)</a>
-          <a class="btn ghost" href="https://github.com/rikit03" target="_blank" rel="noopener">GitHub</a>
-          <a class="btn ghost" href="https://www.linkedin.com/in/rikit-thapa-294ab028a/" target="_blank" rel="noopener">LinkedIn</a>
-        </div>
-
-        <div class="contact-row muted" style="margin-top:12px">
-          <div>📍 Belleville, ON</div>
-          <div>•</div>
-          <div>🎓 Loyalist College (2025)</div>
-        </div>
+      <div class="actions" style="margin-top:14px">
+        <a class="btn primary" href="Resume.pdf" target="_blank">📄 Resume (PDF)</a>
+        <a class="btn ghost" href="https://github.com/rikit03" target="_blank">GitHub</a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/rikit-thapa-294ab028a/" target="_blank">LinkedIn</a>
       </div>
-    </header>
 
-    <!-- MAIN GRID -->
-    <main class="grid" role="main">
-      <!-- LEFT -->
-      <section>
-        <article class="card" aria-labelledby="about">
-          <h2 id="about">About</h2>
-          <p class="muted">
-            Motivated Computer Systems Technician graduate with hands-on experience in IT support, networking, and Azure cloud security. Skilled in troubleshooting, system administration (Windows & Linux), Azure services, and automating tasks using PowerShell and Python. Strong documentation habits, and experience designing multi-site network simulations and secure cloud environments.
-          </p>
-        </article>
+      <div style="margin-top:10px;color:#6b7280">📍 Belleville, ON • 🎓 Loyalist College (2025)</div>
+    </div>
+  </header>
 
-        <article class="card" style="margin-top:16px" aria-labelledby="projects">
-          <h2 id="projects">Highlighted Projects</h2>
+  <!-- GRID -->
+  <main class="grid">
 
-          <ul class="projects" aria-live="polite">
-            <!-- Azure Security Lab -->
-            <li class="project" aria-label="Azure Security Lab">
-              <div class="tag">Cloud</div>
-              <div class="meta" style="flex:1">
-                <a class="title" href="projects/azure-security-lab/" target="_blank">Azure Security Lab (AZ-500)</a>
-                <p class="muted">Hardened Azure environment — RBAC, NSGs, Azure Firewall, Log Analytics and monitoring. Includes ARM/Bicep snippets and policy examples.</p>
-                <div style="margin-top:8px">
-                  <a class="btn ghost" href="projects/azure-security-lab/azure-architecture.png" target="_blank">View diagram</a>
-                  <a class="btn ghost" href="projects/azure-security-lab/az-policy.json" target="_blank">Policy JSON</a>
-                </div>
-              </div>
-            </li>
+    <!-- LEFT SIDE -->
+    <section>
+      <div class="card">
+        <h2>About</h2>
+        <p>
+          Motivated Computer Systems Technician with hands-on experience in networking, Azure cloud security,
+          troubleshooting, and automation using Python and PowerShell.
+        </p>
+      </div>
 
-            <!-- SQL Security & Backup Strategy -->
-            <li class="project" aria-label="SQL Security and Backup Strategy">
-              <div class="tag" style="background:linear-gradient(90deg,#ffb366,#ff7b7b)">DB</div>
-              <div class="meta" style="flex:1">
-                <a class="title" href="projects/sql/rikit_SQL_Security_policy.docx" target="_blank">SQL Security Policy</a>
-                <p class="muted">Role-based access controls, auditing and a documented backup & recovery strategy for on-prem/VM SQL Server environments.</p>
-                <div style="margin-top:8px">
-                  <a class="btn ghost" href="projects/sql/rikit_SQL%20Backup%20policy.docx" target="_blank">Download Backup Policy</a>
-                  <a class="btn ghost" href="projects/sql/rikit_SQL_Security_policy.docx" target="_blank">Download Security Policy</a>
-                </div>
-              </div>
-            </li>
+      <div class="card" style="margin-top:16px">
+        <h2>Highlighted Projects</h2>
 
-            <!-- Python + SQL Automation Tool -->
-            <li class="project" aria-label="Python plus SQL Automation Tool">
-              <div class="tag">Code</div>
-              <div class="meta" style="flex:1">
-                <a class="title" href="projects/python-sql/app.py" target="_blank">Python + SQL Automation Tool</a>
-                <p class="muted">A Python-based automation tool that executes SQL queries, triggers stored procedures and exports reports. Built with pyodbc for SQL Server connectivity.</p>
-                <div style="margin-top:8px">
-                  <a class="btn ghost" href="projects/python-sql/app.py" target="_blank">app.py</a>
-                  <a class="btn ghost" href="projects/python-sql/pythonProject.sql" target="_blank">SQL scripts</a>
-                </div>
-              </div>
-            </li>
+        <ul class="projects">
 
-            <!-- Network Design Simulation -->
-            <li class="project" aria-label="Network Design Simulation">
-              <div class="tag" style="background:linear-gradient(90deg,#9f7aea,#60a5fa)">Network</div>
-              <div class="meta" style="flex:1">
-                <a class="title" href="projects/network/network-topology.pkt" target="_blank">Network Design Simulation</a>
-                <p class="muted">Multi-site network simulated in Packet Tracer / GNS3 with VLANs, OSPF, DHCP, ACLs and NAT. Full documentation and configs included.</p>
-                <div style="margin-top:8px">
-                  <a class="btn ghost" href="projects/network/network-topology.pkt" target="_blank">Download .pkt</a>
-                  <a class="btn ghost" href="projects/network/network-docs.pdf" target="_blank">Documentation</a>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </article>
+          <!-- AZURE LAB -->
+          <li class="project">
+            <div class="tag">Cloud</div>
+            <h3><a href="projects/azure-security-lab/" target="_blank">Azure Security Lab (AZ-500)</a></h3>
+            <p>RBAC, NSGs, Azure Firewall, Logging, and Policies.</p>
+            <a class="btn ghost" href="projects/azure-security-lab/azure-architecture.png" target="_blank">View Diagram</a>
+          </li>
 
-        <article class="card" style="margin-top:16px" aria-labelledby="experience">
-          <h2 id="experience">Experience</h2>
-          <ul class="muted" style="padding-left:18px;margin:0">
-            <li><strong>Technical Sales Advisor</strong> — Best Buy, Belleville, ON (Oct 2023 – Jun 2025): customer-facing troubleshooting, hardware & software setups, assisted Geek Squad.</li>
-            <li><strong>Customer Support Representative</strong> — Techlink Solutions, Kathmandu (Oct 2022 – Jul 2023): phone/email/chat support, issue triage and resolution.</li>
-            <li><strong>Lab Assistant</strong> — Southwestern State College, Kathmandu (May 2022 – Oct 2022): VM/lab provisioning, student support, and lab maintenance.</li>
-          </ul>
-        </article>
-      </section>
+          <!-- SQL SECURITY -->
+          <li class="project">
+            <div class="tag">DB</div>
+            <h3>SQL Security & Backup Strategy</h3>
+            <a class="btn ghost" href="projects/sql/rikit_SQL Backup policy.docx" target="_blank">Backup Policy</a>
+            <a class="btn ghost" href="projects/sql/rikit_SQL_Security_policy.docx" target="_blank">Security Policy</a>
+          </li>
 
-      <!-- RIGHT -->
-      <aside>
-        <div class="card" aria-labelledby="skills">
-          <h2 id="skills">Skills & Tools</h2>
-          <div class="skills" style="margin-top:10px">
-            <div class="skill">Routing & Switching</div>
-            <div class="skill">VLANs</div>
-            <div class="skill">OSPF / EIGRP</div>
-            <div class="skill">Azure RBAC</div>
-            <div class="skill">Azure Firewall</div>
-            <div class="skill">Windows Server</div>
-            <div class="skill">Linux</div>
-            <div class="skill">PowerShell</div>
-            <div class="skill">Python</div>
-            <div class="skill">SQL Server</div>
-          </div>
-        </div>
+          <!-- PYTHON + SQL TOOL -->
+          <li class="project">
+            <div class="tag">Code</div>
+            <h3>Python + SQL Automation Tool</h3>
+            <a class="btn ghost" href="projects/python-sql/app.py" target="_blank">app.py</a>
+            <a class="btn ghost" href="projects/python-sql/pythonProject.sql" target="_blank">SQL Script</a>
+          </li>
 
-        <div class="card" style="margin-top:16px" aria-labelledby="resume">
-          <h2 id="resume">Resume</h2>
-          <p class="muted">Open or download my resume (PDF).</p>
-          <a class="btn primary" href="/mnt/data/resume.pdf" target="_blank" rel="noopener">Open Resume (PDF)</a>
-        </div>
+          <!-- NETWORK LAB -->
+          <li class="project">
+            <div class="tag">Network</div>
+            <h3>Network Design Simulation</h3>
+            <a class="btn ghost" href="projects/network/network-topology.pkt" target="_blank">Topology File (.pkt)</a>
+            <a class="btn ghost" href="projects/network/network-docs.pdf" target="_blank">Documentation</a>
+          </li>
 
-        <div class="card" style="margin-top:16px" aria-labelledby="contact">
-          <h2 id="contact">Contact</h2>
-          <p class="muted">Email: <a href="mailto:rikitthapa03@gmail.com">rikitthapa03@gmail.com</a></p>
-          <div style="margin-top:10px">
-            <a class="btn ghost" href="https://github.com/rikit03" target="_blank">GitHub</a>
-            <a class="btn ghost" href="https://www.linkedin.com/in/rikit-thapa-294ab028a/" target="_blank">LinkedIn</a>
-          </div>
-        </div>
-      </aside>
-    </main>
+        </ul>
+      </div>
 
-    <footer>
-      <div class="muted">© 2025 Rikit Thapa — Built for IT & Networking roles</div>
-    </footer>
+      <div class="card" style="margin-top:16px">
+        <h2>Experience</h2>
+        <ul>
+          <li><strong>Technical Sales Advisor — Best Buy</strong> (2023–2025)</li>
+          <li><strong>Customer Support — Techlink Solutions</strong> (2022–2023)</li>
+          <li><strong>Lab Assistant — Southwestern State College</strong> (2022)</li>
+        </ul>
+      </div>
+    </section>
 
-  </div>
+    <!-- RIGHT SIDE -->
+    <aside>
+      <div class="card">
+        <h2>Skills</h2>
+        <p>Routing, Switching, VLANs, OSPF, Azure, Windows Server, Linux, SQL Server, Python, PowerShell</p>
+      </div>
+
+      <div class="card" style="margin-top:16px">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:rikitthapa03@gmail.com">rikitthapa03@gmail.com</a></p>
+      </div>
+    </aside>
+
+  </main>
+
+  <footer>© 2025 Rikit Thapa — Portfolio</footer>
+
+</div>
 </body>
 </html>
