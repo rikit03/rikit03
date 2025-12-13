@@ -34,6 +34,9 @@ body{
 }
 .wrap{max-width:1200px;margin:auto}
 
+h2{margin-top:0}
+
+/* HERO */
 .hero{
   display:flex;
   gap:20px;
@@ -56,6 +59,7 @@ body{
 .hero-title{margin:0;font-size:28px;font-weight:800}
 .hero-sub{margin-top:6px;color:var(--muted);font-weight:600}
 
+/* CARDS */
 .card{
   margin-top:24px;
   padding:22px;
@@ -63,8 +67,8 @@ body{
   border-radius:var(--radius);
   box-shadow:var(--shadow);
 }
-h2{margin-top:0}
 
+/* PROJECTS */
 .projects{
   list-style:none;
   padding:0;
@@ -72,7 +76,6 @@ h2{margin-top:0}
   grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
   gap:22px;
 }
-
 .project{
   background:#0f172a;
   color:#e5e7eb;
@@ -84,7 +87,6 @@ h2{margin-top:0}
   transform:translateY(-6px);
   box-shadow:0 25px 55px rgba(0,0,0,.45);
 }
-
 .tag{
   display:inline-block;
   padding:6px 14px;
@@ -106,13 +108,9 @@ h2{margin-top:0}
   text-decoration:none;
 }
 .title:hover{color:#60a5fa}
-
 .muted{color:#94a3b8;font-size:14px}
 
-.bullets{
-  margin:12px 0 0 18px;
-  padding:0;
-}
+.bullets{margin:12px 0 0 18px}
 .bullets li{margin-bottom:6px}
 
 .actions{
@@ -121,25 +119,35 @@ h2{margin-top:0}
   gap:10px;
   flex-wrap:wrap;
 }
-
 .btn{
   padding:10px 16px;
   border-radius:12px;
   font-weight:700;
   text-decoration:none;
-  transition:.2s;
 }
-.btn.primary{
-  background:#3b82f6;
-  color:#fff;
-}
-.btn.primary:hover{opacity:.9}
-.btn.ghost{
-  border:1px solid #475569;
-  color:#e5e7eb;
-}
-.btn.ghost:hover{border-color:#60a5fa}
+.btn.primary{background:#3b82f6;color:#fff}
+.btn.ghost{border:1px solid #475569;color:#e5e7eb}
 
+/* SKILLS */
+.skills{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:12px;
+}
+.skill{
+  padding:12px;
+  border-radius:12px;
+  background:#e5e7eb;
+  font-weight:600;
+}
+[data-theme="dark"] .skill{background:#020617}
+
+/* EXPERIENCE */
+.timeline li{
+  margin-bottom:10px;
+}
+
+/* TOGGLE */
 .theme-toggle{
   position:fixed;
   top:18px;
@@ -173,93 +181,111 @@ footer{
   <div>
     <h1 class="hero-title">Rikit Thapa</h1>
     <div class="hero-sub">IT Support • Help Desk • Networking • Windows Server • Azure</div>
+    <div class="hero-sub">📍 Belleville, ON</div>
   </div>
 </header>
 
 <section class="card">
-<h2>Highlighted Projects</h2>
+<h2>About</h2>
+<p class="muted">
+Motivated Computer Systems Technician with hands-on experience in IT support,
+networking, Active Directory, Azure fundamentals, and automation using Python and PowerShell.
+</p>
+</section>
 
+<section class="card">
+<h2>Highlighted Projects</h2>
 <ul class="projects">
 
 <li class="project">
-  <div class="tag gradient-purple">Troubleshooting</div>
-  <a class="title" href="project.pdf" target="_blank">Network Connectivity Diagnosis & Repair</a>
-  <p class="muted">Diagnosed and resolved Windows networking failures using layered troubleshooting.</p>
-  <ul class="bullets">
-    <li>DNS, gateway, and NIC-level fault isolation</li>
-    <li>PowerShell & Windows networking tools</li>
-    <li>Fast service restoration</li>
-  </ul>
-  <div class="actions">
-    <a class="btn primary" href="project.pdf" target="_blank">View PDF</a>
-    <a class="btn ghost" href="project.pdf" download>Download</a>
-  </div>
+<div class="tag gradient-purple">Troubleshooting</div>
+<a class="title" href="project.pdf" target="_blank">Network Connectivity Diagnosis & Repair</a>
+<p class="muted">Diagnosed and resolved Windows networking failures.</p>
+<ul class="bullets">
+<li>DNS & gateway troubleshooting</li>
+<li>PowerShell diagnostics</li>
+<li>Rapid issue resolution</li>
+</ul>
+<div class="actions">
+<a class="btn primary" href="project.pdf" target="_blank">View PDF</a>
+<a class="btn ghost" href="project.pdf" download>Download</a>
+</div>
 </li>
 
 <li class="project">
-  <div class="tag gradient-blue">Windows Server</div>
-  <a class="title" href="WindowsServerLab.pdf" target="_blank">Windows Server Domain Lab</a>
-  <p class="muted">Built a Windows Server 2022 enterprise domain environment.</p>
-  <ul class="bullets">
-    <li>AD DS, DNS, DHCP & Group Policy</li>
-    <li>Domain-joined Windows clients</li>
-    <li>Centralized authentication</li>
-  </ul>
-  <div class="actions">
-    <a class="btn primary" href="WindowsServerLab.pdf" target="_blank">View PDF</a>
-    <a class="btn ghost" href="WindowsServerLab.pdf" download>Download</a>
-  </div>
+<div class="tag gradient-blue">Windows Server</div>
+<a class="title" href="WindowsServerLab.pdf" target="_blank">Windows Server Domain Lab</a>
+<p class="muted">Enterprise Windows Server 2022 lab.</p>
+<ul class="bullets">
+<li>AD DS, DNS, DHCP</li>
+<li>Group Policy</li>
+<li>Domain-joined clients</li>
+</ul>
+<div class="actions">
+<a class="btn primary" href="WindowsServerLab.pdf">View PDF</a>
+<a class="btn ghost" href="WindowsServerLab.pdf" download>Download</a>
+</div>
 </li>
 
 <li class="project">
-  <div class="tag gradient-red">Database</div>
-  <a class="title" href="rikit_SQL_Security_policy.docx" target="_blank">SQL Security & Backup Strategy</a>
-  <p class="muted">Designed SQL Server security and recovery policies.</p>
-  <ul class="bullets">
-    <li>RBAC permissions</li>
-    <li>Automated backups</li>
-    <li>Disaster recovery planning</li>
-  </ul>
-  <div class="actions">
-    <a class="btn primary" href="rikit_SQL_Security_policy.docx" target="_blank">Security Policy</a>
-    <a class="btn ghost" href="rikit_SQL%20Backup%20policy.docx" download>Backup Policy</a>
-  </div>
-</li>
-
-<li class="project">
-  <div class="tag gradient-purple">Automation</div>
-  <a class="title" href="rikit_main.py" target="_blank">Python + SQL Automation Tool</a>
-  <p class="muted">Automated SQL updates using a Python GUI.</p>
-  <ul class="bullets">
-    <li>Tkinter-based interface</li>
-    <li>pyodbc secure connections</li>
-    <li>Reduced manual SQL tasks</li>
-  </ul>
-  <div class="actions">
-    <a class="btn primary" href="rikit_main.py" target="_blank">View Code</a>
-    <a class="btn ghost" href="PythonProject.sql" download>SQL Scripts</a>
-  </div>
-</li>
-
-<li class="project">
-  <div class="tag gradient-blue">Networking</div>
-  <a class="title" href="network-topology.pkt" target="_blank">Network Design Simulation</a>
-  <p class="muted">Enterprise network simulation using Packet Tracer.</p>
-  <ul class="bullets">
-    <li>VLANs, OSPF, ACLs & NAT</li>
-    <li>Layer 2 & Layer 3 design</li>
-    <li>Documented topology</li>
-  </ul>
-  <div class="actions">
-    <a class="btn primary" href="network-topology.pkt" target="_blank">Open File</a>
-    <a class="btn ghost" href="network-topology.pkt" download>Download</a>
-  </div>
+<div class="tag gradient-red">Database</div>
+<a class="title" href="#">SQL Security & Backup Strategy</a>
+<p class="muted">Security and recovery planning for SQL Server.</p>
+<ul class="bullets">
+<li>RBAC permissions</li>
+<li>Backup automation</li>
+<li>Disaster recovery</li>
+</ul>
+<div class="actions">
+<a class="btn primary" href="#">View</a>
+</div>
 </li>
 
 </ul>
 </section>
 
+<section class="card">
+<h2>Technical Skills</h2>
+<div class="skills">
+<div class="skill">IT Support & Troubleshooting</div>
+<div class="skill">Active Directory</div>
+<div class="skill">Windows Server</div>
+<div class="skill">Networking (VLAN, DNS, DHCP)</div>
+<div class="skill">Azure Fundamentals</div>
+<div class="skill">Python Automation</div>
+<div class="skill">Ticketing Systems</div>
+<div class="skill">Remote Support</div>
+</div>
+</section>
+
+<section class="card">
+<h2>Experience</h2>
+<ul class="timeline">
+<li><strong>Technical Sales Advisor — Best Buy</strong> (2023–2025)</li>
+<li><strong>Customer Support Representative — Techlink Solutions</strong> (2022–2023)</li>
+<li><strong>Lab Assistant — Southwestern State College</strong> (2022)</li>
+</ul>
+</section>
+
+<section class="card">
+<h2>Education</h2>
+<p class="muted"><strong>Loyalist College</strong> — Computer Systems Networking Technician (2023–2025)</p>
+</section>
+
+<section class="card">
+<h2>Certifications</h2>
+<p class="muted">Microsoft Azure Fundamentals (AZ-900)</p>
+<p class="muted">Cisco CCNA — In Progress</p>
+</section>
+
+<section class="card">
+<h2>Contact</h2>
+<p class="muted">📧 rikitthapa03@gmail.com</p>
+<p class="muted">🔗 LinkedIn | GitHub</p>
+</section>
+
 <footer>© 2025 Rikit Thapa — IT Support & Network Technician</footer>
+
 </div>
 
 <script>
