@@ -1,324 +1,286 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Rikit Thapa — IT Support & Network Technician</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Rikit Thapa | IT Portfolio</title>
 
 <style>
 /* ================= ROOT ================= */
 :root{
-  --bg: linear-gradient(180deg,#f7fbff,#f1f5ff);
+  --bg:#f5f7fb;
   --panel:#ffffff;
   --text:#0f172a;
-  --muted:#64748b;
-  --primary:#3b82f6;
-  --accent:#8b5cf6;
-  --radius:18px;
-  --shadow:0 18px 45px rgba(0,0,0,.08);
+  --muted:#6b7280;
+  --primary:#2563eb;
+  --radius:16px;
+  --shadow:0 12px 35px rgba(0,0,0,.08);
 }
+[data-theme="dark"]{
+  --bg:#020617;
+  --panel:#020617;
+  --text:#e5e7eb;
+  --muted:#94a3b8;
+  --primary:#60a5fa;
+  --shadow:0 18px 45px rgba(0,0,0,.6);
+}
+
+/* ================= BASE ================= */
 *{box-sizing:border-box}
 body{
   margin:0;
-  font-family:Inter,system-ui;
+  font-family:Inter,system-ui,Segoe UI,Roboto,Arial;
   background:var(--bg);
   color:var(--text);
-  padding:28px 18px;
 }
-.wrap{max-width:1200px;margin:auto}
+.wrap{max-width:1200px;margin:auto;padding:28px 18px}
 
-/* ================= ANIMATION ================= */
-@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
-.appears{animation:fadeUp .6s ease both}
+/* ================= BUTTONS ================= */
+.btn{
+  padding:10px 16px;
+  border-radius:12px;
+  font-weight:700;
+  text-decoration:none;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  transition:.25s;
+}
+.btn.primary{
+  background:linear-gradient(90deg,#2563eb,#06b6d4);
+  color:#fff;
+}
+.btn.primary:hover{transform:translateY(-2px)}
+.btn.ghost{
+  border:1px solid rgba(0,0,0,.1);
+  color:var(--text);
+}
 
 /* ================= HERO ================= */
 .hero{
   display:flex;
   gap:22px;
   background:var(--panel);
-  padding:26px;
+  padding:28px;
   border-radius:22px;
   box-shadow:var(--shadow);
 }
 .avatar{
-  width:100px;height:100px;
+  width:110px;height:110px;
   border-radius:18px;
-  background:linear-gradient(135deg,#6366f1,#3b82f6);
+  background:linear-gradient(135deg,#2563eb,#06b6d4);
   color:#fff;
-  font-size:34px;
-  font-weight:800;
   display:flex;
   align-items:center;
   justify-content:center;
+  font-size:36px;
+  font-weight:800;
 }
-.hero-title{margin:0;font-size:30px;font-weight:800}
-.hero-sub{margin-top:6px;color:var(--muted);font-weight:600}
+.hero-title{margin:0;font-size:28px}
+.hero-sub{color:var(--muted);font-weight:600}
 
-/* ================= BUTTONS ================= */
-.actions{margin-top:14px;display:flex;gap:10px;flex-wrap:wrap}
-.btn{
-  padding:10px 16px;
-  border-radius:14px;
-  font-weight:700;
-  text-decoration:none;
-  transition:.25s;
-}
-.btn.primary{background:var(--primary);color:#fff}
-.btn.primary:hover{transform:translateY(-2px)}
-.btn.ghost{
-  background:#fff;
-  border:1px solid #e2e8f0;
-  color:var(--text);
-}
-.btn.ghost:hover{border-color:var(--primary);color:var(--primary)}
-
-/* ================= LAYOUT ================= */
+/* ================= GRID ================= */
 .grid{
   display:grid;
   grid-template-columns:2fr 1fr;
-  gap:24px;
-  margin-top:24px;
+  gap:22px;
+  margin-top:26px;
 }
-@media(max-width:980px){.grid{grid-template-columns:1fr}.hero{flex-direction:column}}
+@media(max-width:980px){
+  .grid{grid-template-columns:1fr}
+  .hero{flex-direction:column}
+}
 
+/* ================= CARDS ================= */
 .card{
   background:var(--panel);
   padding:22px;
-  border-radius:22px;
+  border-radius:18px;
   box-shadow:var(--shadow);
-  transition:.25s;
 }
-.card:hover{transform:translateY(-5px)}
-h2{margin:0 0 14px;font-size:22px;color:var(--primary)}
+h2{margin-top:0;color:var(--primary)}
 .muted{color:var(--muted);font-size:15px}
 
-/* ================= PROJECTS ================= */
-.projects{
-  list-style:none;
-  padding:0;
-  margin:0;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-  gap:22px;
+/* ================= PROJECT SLIDER ================= */
+.projects-wrapper{
+  overflow-x:auto;
+  display:flex;
+  gap:18px;
+  scroll-snap-type:x mandatory;
+  padding-bottom:10px;
 }
+.projects-wrapper::-webkit-scrollbar{display:none}
+
 .project{
-  background:#0f172a;
+  min-width:320px;
+  background:#020617;
   color:#e5e7eb;
-  padding:22px;
   border-radius:22px;
+  padding:22px;
+  scroll-snap-align:start;
   transition:.3s;
 }
-.project:hover{
-  transform:translateY(-6px);
-  box-shadow:0 25px 55px rgba(0,0,0,.45);
-}
+.project:hover{transform:translateY(-6px)}
+
 .tag{
-  display:inline-block;
-  padding:6px 14px;
   font-size:12px;
   font-weight:700;
+  padding:6px 14px;
   border-radius:999px;
+  display:inline-block;
+  margin-bottom:10px;
   color:#fff;
 }
+.gradient-purple{background:linear-gradient(90deg,#8b5cf6,#3b82f6)}
+.gradient-blue{background:linear-gradient(90deg,#2563eb,#38bdf8)}
+.gradient-orange{background:linear-gradient(90deg,#ff8a65,#ff6b81)}
+
 .title{
-  display:block;
-  margin:10px 0;
   font-size:18px;
   font-weight:800;
   color:#e5e7eb;
   text-decoration:none;
 }
 .title:hover{color:#60a5fa}
-.bullets{margin:12px 0 0 18px}
-.bullets li{margin-bottom:6px}
+
+.bullets{margin:12px 0 0 18px;color:#cbd5f5}
+.actions{margin-top:16px;display:flex;gap:10px}
 
 /* ================= SKILLS ================= */
-.skills{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:12px;
-}
 .skill-card{
-  padding:12px 14px;
-  border-radius:14px;
-  background:#f1f5ff;
+  background:#020617;
+  color:#e5e7eb;
+  padding:10px 14px;
+  border-radius:12px;
   font-weight:600;
+  margin:6px 0;
 }
 
-/* ================= CERTIFICATIONS ================= */
-.cert-list{display:grid;gap:14px}
-.cert-card{
-  display:flex;
-  gap:12px;
-  align-items:center;
-  padding:14px;
-  border-radius:16px;
-  background:#f8fafc;
-}
-
-/* ================= FOOTER ================= */
-footer{
-  text-align:center;
-  margin-top:40px;
-  color:var(--muted);
-  font-size:14px;
+/* ================= THEME TOGGLE ================= */
+.theme-toggle{
+  position:fixed;
+  top:18px;right:18px;
+  background:var(--panel);
+  padding:10px 14px;
+  border-radius:999px;
+  cursor:pointer;
+  box-shadow:var(--shadow);
 }
 </style>
 </head>
 
 <body>
+<button class="theme-toggle" id="toggle">🌙</button>
+
 <div class="wrap">
 
-<header class="hero appears">
+<!-- HERO -->
+<header class="hero">
   <div class="avatar">RT</div>
   <div>
     <h1 class="hero-title">Rikit Thapa</h1>
     <div class="hero-sub">IT Support • Help Desk • Network Technician • Azure • Automation</div>
-    <div class="actions">
+    <div style="margin-top:12px">
       <a class="btn primary" href="RESUME.pdf" target="_blank">📄 Resume</a>
-      <a class="btn ghost" href="https://github.com/rikit03" target="_blank">💻 GitHub</a>
-      <a class="btn ghost" href="https://www.linkedin.com/in/rikit-thapa-294ab028a/" target="_blank">🔗 LinkedIn</a>
+      <a class="btn ghost" href="https://github.com/rikit03" target="_blank">GitHub</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/rikit-thapa-294ab028a/" target="_blank">LinkedIn</a>
     </div>
-    <div style="margin-top:10px;font-weight:600;color:var(--muted)">
-      📍 Belleville, ON • Loyalist College (Diploma — 2025)
-    </div>
+    <div class="muted" style="margin-top:10px">📍 Belleville, ON • Loyalist College (Diploma — 2025)</div>
   </div>
 </header>
 
 <main class="grid">
 
+<!-- LEFT -->
 <section>
 
-<div class="card appears">
+<div class="card">
 <h2>About</h2>
 <p class="muted">
-Motivated Computer Systems Technician with hands-on experience in IT support, networking,
-Active Directory, Office 365, Azure fundamentals, and automation using PowerShell and Python.
+Motivated Computer Systems Technician with practical experience in IT support, networking, and Azure cloud security. I handle hardware/software troubleshooting, Active Directory and Office 365 administration, design secure network/cloud solutions, and automate routine tasks with PowerShell and Python.
 </p>
 </div>
 
-<div class="card appears" style="margin-top:16px">
-<h2>Education</h2>
-<p class="muted"><strong>Loyalist College</strong> — Computer Systems Networking Technician | 2023–2025</p>
-<p class="muted"><strong>Southwestern State College</strong> — High School, Science | 2020–2022</p>
-</div>
-
-<div class="card appears" style="margin-top:16px">
+<div class="card" style="margin-top:16px">
 <h2>Highlighted Projects</h2>
 
-<ul class="projects">
+<div class="projects-wrapper">
 
-<li class="project">
-<div class="tag" style="background:linear-gradient(90deg,#8b5cf6,#3b82f6)">Troubleshooting</div>
+<!-- PROJECT 1 -->
+<div class="project">
+<div class="tag gradient-purple">Troubleshooting</div>
 <a class="title" href="project.pdf" target="_blank">Network Connectivity Diagnosis & Repair</a>
-<p class="muted">Diagnosed and resolved Windows networking failures.</p>
+<p class="muted">Diagnosed and resolved Windows networking failures using adapter validation, PowerShell diagnostics, and layered troubleshooting.</p>
 <ul class="bullets">
-<li>DNS, gateway & NIC troubleshooting</li>
-<li>PowerShell diagnostics</li>
+<li>DNS, gateway, and NIC-level fault isolation</li>
+<li>PowerShell & Windows networking tools</li>
 <li>Fast service restoration</li>
 </ul>
 <div class="actions">
-<a class="btn primary" href="project.pdf">View PDF</a>
+<a class="btn primary" href="project.pdf" target="_blank">View PDF</a>
 <a class="btn ghost" href="project.pdf" download>Download</a>
 </div>
-</li>
+</div>
 
-<li class="project">
-<div class="tag" style="background:linear-gradient(90deg,#3b82f6,#06b6d4)">Windows Server</div>
-<a class="title" href="WindowsServerLab.pdf">Windows Server Domain Lab</a>
-<p class="muted">Built and secured a Windows Server 2022 domain.</p>
-<ul class="bullets">
-<li>AD DS, DNS, DHCP</li>
-<li>Group Policy Objects</li>
-<li>Client domain integration</li>
-</ul>
+<!-- PROJECT 2 -->
+<div class="project">
+<div class="tag gradient-blue">Windows Server</div>
+<a class="title" href="WindowsServerLab.pdf" target="_blank">Windows Server Domain Lab</a>
+<p class="muted">
+Built a Windows Server 2022 VM, configured ADDS, DNS, DHCP, and Group Policies, and joined Windows client machines to a functional domain environment. Gained hands-on experience in enterprise authentication, domain management, and access control.
+</p>
 <div class="actions">
-<a class="btn primary" href="WindowsServerLab.pdf">View PDF</a>
+<a class="btn primary" href="WindowsServerLab.pdf" target="_blank">View Project</a>
 </div>
-</li>
+</div>
 
-<li class="project">
-<div class="tag" style="background:linear-gradient(90deg,#fb7185,#f97316)">Database</div>
-<a class="title" href="rikit_SQL_Security_policy.docx">SQL Security & Backup Strategy</a>
-<p class="muted">Security and recovery planning for SQL Server.</p>
-<ul class="bullets">
-<li>RBAC permissions</li>
-<li>Automated backups</li>
-<li>Disaster recovery planning</li>
-</ul>
+<!-- PROJECT 3 -->
+<div class="project">
+<div class="tag gradient-orange">Database</div>
+<a class="title" href="rikit_SQL_Security_policy.docx" target="_blank">SQL Security & Backup Strategy</a>
+<p class="muted">
+This policy outlines how SQL Server security and backups are handled, including user authentication, RBAC permissions, and scheduled backup routines. It ensures the AdventureWorks database stays protected, compliant, and fully recoverable in case of failure.
+</p>
 <div class="actions">
-<a class="btn primary" href="rikit_SQL_Security_policy.docx">View Policy</a>
+<a class="btn ghost" href="rikit_SQL%20Backup%20policy.docx" target="_blank">Backup Policy</a>
+<a class="btn ghost" href="rikit_SQL_Security_policy.docx" target="_blank">Security Policy</a>
 </div>
-</li>
-
-<li class="project">
-<div class="tag" style="background:linear-gradient(90deg,#9f7aea,#60a5fa)">Automation</div>
-<a class="title" href="rikit_main.py">Python + SQL Automation Tool</a>
-<p class="muted">GUI-based SQL automation using Python.</p>
-<ul class="bullets">
-<li>pyodbc secure connections</li>
-<li>Stored procedures</li>
-<li>Reduced manual errors</li>
-</ul>
-<div class="actions">
-<a class="btn primary" href="rikit_main.py">View Code</a>
-</div>
-</li>
-
-</ul>
 </div>
 
-<div class="card appears" style="margin-top:16px">
-<h2>Experience</h2>
-<ul class="muted">
-<li><strong>Technical Sales Advisor — Best Buy</strong> (2023–2025)</li>
-<li><strong>Customer Support Representative — Techlink Solutions</strong> (2022–2023)</li>
-<li><strong>Lab Assistant — Southwestern State College</strong> (2022)</li>
-</ul>
+</div>
 </div>
 
 </section>
 
+<!-- RIGHT -->
 <aside>
 
-<div class="card appears">
+<div class="card">
 <h2>Technical Skills</h2>
-<div class="skills">
-<div class="skill-card">IT Support & Troubleshooting</div>
-<div class="skill-card">Active Directory</div>
-<div class="skill-card">Windows Server</div>
-<div class="skill-card">Networking (VLAN, DNS, DHCP)</div>
+<div class="skill-card">Technical Support & Troubleshooting</div>
+<div class="skill-card">Routing & Switching</div>
+<div class="skill-card">VLANs, DHCP & DNS</div>
 <div class="skill-card">Microsoft Azure</div>
-<div class="skill-card">Python & PowerShell Automation</div>
-<div class="skill-card">SQL Server / MySQL</div>
-<div class="skill-card">Remote Support (RDP, AnyDesk)</div>
-</div>
-</div>
-
-<div class="card appears" style="margin-top:16px">
-<h2>Certifications</h2>
-<div class="cert-list">
-<div class="cert-card">
-<strong>Microsoft Azure Fundamentals (AZ-900)</strong>
-</div>
-<div class="cert-card">
-<strong>Cisco CCNA</strong> — In Progress
-</div>
-</div>
-</div>
-
-<div class="card appears" style="margin-top:16px">
-<h2>Contact</h2>
-<p class="muted">📧 rikitthapa03@gmail.com</p>
+<div class="skill-card">Windows Server / Active Directory</div>
+<div class="skill-card">Network Automation & Python</div>
 </div>
 
 </aside>
 </main>
 
-<footer>© 2025 Rikit Thapa — IT Support & Network Technician</footer>
+<footer class="muted" style="margin-top:30px;text-align:center">
+© 2025 Rikit Thapa — IT Support & Network Technician
+</footer>
 
 </div>
+
+<script>
+const toggle=document.getElementById('toggle');
+toggle.onclick=()=>{
+  const dark=document.documentElement.getAttribute('data-theme')==='dark';
+  document.documentElement.setAttribute('data-theme',dark?'light':'dark');
+  toggle.textContent=dark?'🌙':'☀️';
+}
+</script>
 </body>
 </html>
