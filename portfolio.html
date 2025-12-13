@@ -1,77 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Rikit Thapa — IT Support & Network Technician</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+/* ================= ROOT ================= */
 :root{
-  --bg:#f5f7ff;
+  --bg: linear-gradient(180deg,#f7fbff,#f1f5ff);
   --panel:#ffffff;
   --text:#0f172a;
   --muted:#64748b;
   --primary:#3b82f6;
+  --accent:#8b5cf6;
   --radius:18px;
-  --shadow:0 20px 50px rgba(0,0,0,.08);
+  --shadow:0 18px 45px rgba(0,0,0,.08);
 }
-[data-theme="dark"]{
-  --bg:#020617;
-  --panel:#020617;
-  --text:#e5e7eb;
-  --muted:#94a3b8;
-}
-
 *{box-sizing:border-box}
 body{
   margin:0;
   font-family:Inter,system-ui;
   background:var(--bg);
   color:var(--text);
-  padding:28px;
+  padding:28px 18px;
 }
 .wrap{max-width:1200px;margin:auto}
 
-h2{margin-top:0}
+/* ================= ANIMATION ================= */
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.appears{animation:fadeUp .6s ease both}
 
-/* HERO */
+/* ================= HERO ================= */
 .hero{
   display:flex;
-  gap:20px;
+  gap:22px;
   background:var(--panel);
-  padding:24px;
-  border-radius:var(--radius);
+  padding:26px;
+  border-radius:22px;
   box-shadow:var(--shadow);
 }
 .avatar{
-  width:90px;height:90px;
-  border-radius:16px;
+  width:100px;height:100px;
+  border-radius:18px;
   background:linear-gradient(135deg,#6366f1,#3b82f6);
   color:#fff;
+  font-size:34px;
   font-weight:800;
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:32px;
 }
-.hero-title{margin:0;font-size:28px;font-weight:800}
+.hero-title{margin:0;font-size:30px;font-weight:800}
 .hero-sub{margin-top:6px;color:var(--muted);font-weight:600}
 
-/* CARDS */
-.card{
-  margin-top:24px;
-  padding:22px;
-  background:var(--panel);
-  border-radius:var(--radius);
-  box-shadow:var(--shadow);
+/* ================= BUTTONS ================= */
+.actions{margin-top:14px;display:flex;gap:10px;flex-wrap:wrap}
+.btn{
+  padding:10px 16px;
+  border-radius:14px;
+  font-weight:700;
+  text-decoration:none;
+  transition:.25s;
 }
+.btn.primary{background:var(--primary);color:#fff}
+.btn.primary:hover{transform:translateY(-2px)}
+.btn.ghost{
+  background:#fff;
+  border:1px solid #e2e8f0;
+  color:var(--text);
+}
+.btn.ghost:hover{border-color:var(--primary);color:var(--primary)}
 
-/* PROJECTS */
+/* ================= LAYOUT ================= */
+.grid{
+  display:grid;
+  grid-template-columns:2fr 1fr;
+  gap:24px;
+  margin-top:24px;
+}
+@media(max-width:980px){.grid{grid-template-columns:1fr}.hero{flex-direction:column}}
+
+.card{
+  background:var(--panel);
+  padding:22px;
+  border-radius:22px;
+  box-shadow:var(--shadow);
+  transition:.25s;
+}
+.card:hover{transform:translateY(-5px)}
+h2{margin:0 0 14px;font-size:22px;color:var(--primary)}
+.muted{color:var(--muted);font-size:15px}
+
+/* ================= PROJECTS ================= */
 .projects{
   list-style:none;
   padding:0;
+  margin:0;
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
   gap:22px;
@@ -95,10 +122,6 @@ h2{margin-top:0}
   border-radius:999px;
   color:#fff;
 }
-.gradient-purple{background:linear-gradient(90deg,#8b5cf6,#6366f1)}
-.gradient-blue{background:linear-gradient(90deg,#3b82f6,#06b6d4)}
-.gradient-red{background:linear-gradient(90deg,#fb7185,#f97316)}
-
 .title{
   display:block;
   margin:10px 0;
@@ -108,59 +131,34 @@ h2{margin-top:0}
   text-decoration:none;
 }
 .title:hover{color:#60a5fa}
-.muted{color:#94a3b8;font-size:14px}
-
 .bullets{margin:12px 0 0 18px}
 .bullets li{margin-bottom:6px}
 
-.actions{
-  margin-top:16px;
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-}
-.btn{
-  padding:10px 16px;
-  border-radius:12px;
-  font-weight:700;
-  text-decoration:none;
-}
-.btn.primary{background:#3b82f6;color:#fff}
-.btn.ghost{border:1px solid #475569;color:#e5e7eb}
-
-/* SKILLS */
+/* ================= SKILLS ================= */
 .skills{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
   gap:12px;
 }
-.skill{
-  padding:12px;
-  border-radius:12px;
-  background:#e5e7eb;
+.skill-card{
+  padding:12px 14px;
+  border-radius:14px;
+  background:#f1f5ff;
   font-weight:600;
 }
-[data-theme="dark"] .skill{background:#020617}
 
-/* EXPERIENCE */
-.timeline li{
-  margin-bottom:10px;
+/* ================= CERTIFICATIONS ================= */
+.cert-list{display:grid;gap:14px}
+.cert-card{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  padding:14px;
+  border-radius:16px;
+  background:#f8fafc;
 }
 
-/* TOGGLE */
-.theme-toggle{
-  position:fixed;
-  top:18px;
-  right:18px;
-  padding:10px 14px;
-  border-radius:999px;
-  cursor:pointer;
-  font-weight:700;
-  box-shadow:var(--shadow);
-  background:var(--panel);
-  border:1px solid rgba(0,0,0,.1);
-}
-
+/* ================= FOOTER ================= */
 footer{
   text-align:center;
   margin-top:40px;
@@ -171,132 +169,156 @@ footer{
 </head>
 
 <body>
-
-<button class="theme-toggle" id="themeToggle">🌙 Dark</button>
-
 <div class="wrap">
 
-<header class="hero">
+<header class="hero appears">
   <div class="avatar">RT</div>
   <div>
     <h1 class="hero-title">Rikit Thapa</h1>
-    <div class="hero-sub">IT Support • Help Desk • Networking • Windows Server • Azure</div>
-    <div class="hero-sub">📍 Belleville, ON</div>
+    <div class="hero-sub">IT Support • Help Desk • Network Technician • Azure • Automation</div>
+    <div class="actions">
+      <a class="btn primary" href="RESUME.pdf" target="_blank">📄 Resume</a>
+      <a class="btn ghost" href="https://github.com/rikit03" target="_blank">💻 GitHub</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/rikit-thapa-294ab028a/" target="_blank">🔗 LinkedIn</a>
+    </div>
+    <div style="margin-top:10px;font-weight:600;color:var(--muted)">
+      📍 Belleville, ON • Loyalist College (Diploma — 2025)
+    </div>
   </div>
 </header>
 
-<section class="card">
+<main class="grid">
+
+<section>
+
+<div class="card appears">
 <h2>About</h2>
 <p class="muted">
-Motivated Computer Systems Technician with hands-on experience in IT support,
-networking, Active Directory, Azure fundamentals, and automation using Python and PowerShell.
+Motivated Computer Systems Technician with hands-on experience in IT support, networking,
+Active Directory, Office 365, Azure fundamentals, and automation using PowerShell and Python.
 </p>
-</section>
+</div>
 
-<section class="card">
+<div class="card appears" style="margin-top:16px">
+<h2>Education</h2>
+<p class="muted"><strong>Loyalist College</strong> — Computer Systems Networking Technician | 2023–2025</p>
+<p class="muted"><strong>Southwestern State College</strong> — High School, Science | 2020–2022</p>
+</div>
+
+<div class="card appears" style="margin-top:16px">
 <h2>Highlighted Projects</h2>
+
 <ul class="projects">
 
 <li class="project">
-<div class="tag gradient-purple">Troubleshooting</div>
+<div class="tag" style="background:linear-gradient(90deg,#8b5cf6,#3b82f6)">Troubleshooting</div>
 <a class="title" href="project.pdf" target="_blank">Network Connectivity Diagnosis & Repair</a>
 <p class="muted">Diagnosed and resolved Windows networking failures.</p>
 <ul class="bullets">
-<li>DNS & gateway troubleshooting</li>
+<li>DNS, gateway & NIC troubleshooting</li>
 <li>PowerShell diagnostics</li>
-<li>Rapid issue resolution</li>
+<li>Fast service restoration</li>
 </ul>
 <div class="actions">
-<a class="btn primary" href="project.pdf" target="_blank">View PDF</a>
+<a class="btn primary" href="project.pdf">View PDF</a>
 <a class="btn ghost" href="project.pdf" download>Download</a>
 </div>
 </li>
 
 <li class="project">
-<div class="tag gradient-blue">Windows Server</div>
-<a class="title" href="WindowsServerLab.pdf" target="_blank">Windows Server Domain Lab</a>
-<p class="muted">Enterprise Windows Server 2022 lab.</p>
+<div class="tag" style="background:linear-gradient(90deg,#3b82f6,#06b6d4)">Windows Server</div>
+<a class="title" href="WindowsServerLab.pdf">Windows Server Domain Lab</a>
+<p class="muted">Built and secured a Windows Server 2022 domain.</p>
 <ul class="bullets">
 <li>AD DS, DNS, DHCP</li>
-<li>Group Policy</li>
-<li>Domain-joined clients</li>
+<li>Group Policy Objects</li>
+<li>Client domain integration</li>
 </ul>
 <div class="actions">
 <a class="btn primary" href="WindowsServerLab.pdf">View PDF</a>
-<a class="btn ghost" href="WindowsServerLab.pdf" download>Download</a>
 </div>
 </li>
 
 <li class="project">
-<div class="tag gradient-red">Database</div>
-<a class="title" href="#">SQL Security & Backup Strategy</a>
+<div class="tag" style="background:linear-gradient(90deg,#fb7185,#f97316)">Database</div>
+<a class="title" href="rikit_SQL_Security_policy.docx">SQL Security & Backup Strategy</a>
 <p class="muted">Security and recovery planning for SQL Server.</p>
 <ul class="bullets">
 <li>RBAC permissions</li>
-<li>Backup automation</li>
-<li>Disaster recovery</li>
+<li>Automated backups</li>
+<li>Disaster recovery planning</li>
 </ul>
 <div class="actions">
-<a class="btn primary" href="#">View</a>
+<a class="btn primary" href="rikit_SQL_Security_policy.docx">View Policy</a>
+</div>
+</li>
+
+<li class="project">
+<div class="tag" style="background:linear-gradient(90deg,#9f7aea,#60a5fa)">Automation</div>
+<a class="title" href="rikit_main.py">Python + SQL Automation Tool</a>
+<p class="muted">GUI-based SQL automation using Python.</p>
+<ul class="bullets">
+<li>pyodbc secure connections</li>
+<li>Stored procedures</li>
+<li>Reduced manual errors</li>
+</ul>
+<div class="actions">
+<a class="btn primary" href="rikit_main.py">View Code</a>
 </div>
 </li>
 
 </ul>
-</section>
-
-<section class="card">
-<h2>Technical Skills</h2>
-<div class="skills">
-<div class="skill">IT Support & Troubleshooting</div>
-<div class="skill">Active Directory</div>
-<div class="skill">Windows Server</div>
-<div class="skill">Networking (VLAN, DNS, DHCP)</div>
-<div class="skill">Azure Fundamentals</div>
-<div class="skill">Python Automation</div>
-<div class="skill">Ticketing Systems</div>
-<div class="skill">Remote Support</div>
 </div>
-</section>
 
-<section class="card">
+<div class="card appears" style="margin-top:16px">
 <h2>Experience</h2>
-<ul class="timeline">
+<ul class="muted">
 <li><strong>Technical Sales Advisor — Best Buy</strong> (2023–2025)</li>
 <li><strong>Customer Support Representative — Techlink Solutions</strong> (2022–2023)</li>
 <li><strong>Lab Assistant — Southwestern State College</strong> (2022)</li>
 </ul>
+</div>
+
 </section>
 
-<section class="card">
-<h2>Education</h2>
-<p class="muted"><strong>Loyalist College</strong> — Computer Systems Networking Technician (2023–2025)</p>
-</section>
+<aside>
 
-<section class="card">
+<div class="card appears">
+<h2>Technical Skills</h2>
+<div class="skills">
+<div class="skill-card">IT Support & Troubleshooting</div>
+<div class="skill-card">Active Directory</div>
+<div class="skill-card">Windows Server</div>
+<div class="skill-card">Networking (VLAN, DNS, DHCP)</div>
+<div class="skill-card">Microsoft Azure</div>
+<div class="skill-card">Python & PowerShell Automation</div>
+<div class="skill-card">SQL Server / MySQL</div>
+<div class="skill-card">Remote Support (RDP, AnyDesk)</div>
+</div>
+</div>
+
+<div class="card appears" style="margin-top:16px">
 <h2>Certifications</h2>
-<p class="muted">Microsoft Azure Fundamentals (AZ-900)</p>
-<p class="muted">Cisco CCNA — In Progress</p>
-</section>
+<div class="cert-list">
+<div class="cert-card">
+<strong>Microsoft Azure Fundamentals (AZ-900)</strong>
+</div>
+<div class="cert-card">
+<strong>Cisco CCNA</strong> — In Progress
+</div>
+</div>
+</div>
 
-<section class="card">
+<div class="card appears" style="margin-top:16px">
 <h2>Contact</h2>
 <p class="muted">📧 rikitthapa03@gmail.com</p>
-<p class="muted">🔗 LinkedIn | GitHub</p>
-</section>
+</div>
+
+</aside>
+</main>
 
 <footer>© 2025 Rikit Thapa — IT Support & Network Technician</footer>
 
 </div>
-
-<script>
-const toggle=document.getElementById("themeToggle");
-const root=document.documentElement;
-toggle.onclick=()=>{
-  const dark=root.getAttribute("data-theme")==="dark";
-  root.setAttribute("data-theme",dark?"light":"dark");
-  toggle.textContent=dark?"🌙 Dark":"☀️ Light";
-};
-</script>
-
 </body>
 </html>
