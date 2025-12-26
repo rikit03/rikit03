@@ -43,7 +43,7 @@ I enjoy working on real-world infrastructure challenges and helping organization
 
 ## 📄 Resume
 📥 **Download / View Resume:**  
-👉 [Resume.pdf](./RESUME.pdf)
+👉 [Resume.pdf](./resume.pdf)
 
 ---
 
